@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+    <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,7 +21,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sat.Recruitment.Model\Sat.Recruitment.Model.csproj" />
+    <ProjectReference Include="..\..\Sat.Recruitment.DAL\Sat.Recruitment.DAL.csproj" />
+    <ProjectReference Include="..\..\Sat.Recruitment.Model\Sat.Recruitment.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Files\FileToAddUsers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="UserRepositoryTest.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Files\FileToAddUsers.txt">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\FileToCheckIfUserExist.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
